@@ -1,0 +1,10 @@
+exports[`counter.vue should just work 1`] = `
+"span(style=\'display:inline-block; width:6em\') counter
+span(style=\'display:inline-block; width:3em; text-align: center\') -3
+button(href=\'#\', style=\'display:inline-block; width:2em\') +
+button(href=\'#\', style=\'display:inline-block; width:2em\') -
+button(href=\'#\', style=\'display:inline-block; width:2em\') !
+span(style=\'display:inline-block; width:3em; text-align: center\') 3
+span(style=\'display:inline-block; width:3em\')
+"
+`;
