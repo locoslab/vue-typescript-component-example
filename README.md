@@ -13,6 +13,7 @@ and illustrating
 * [vue-typescript-component](https://github.com/locoslab/vue-typescript-component) to use TypeScript classes as Vue.js components
 * [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-component) to import `*.vue` files in TypeScript sources
 * [vue-typescript-jest](https://github.com/locoslab/vue-typescript-jest) to test Vue.js components and TypeScript sources using Jest
+* [vue-jest-utils](https://github.com/locoslab/vue-jest-utils) to simplify snapshot testing of Vue.js components using Jest and html2jade
 
 ## Setup, Development, Build
 ``` bash
@@ -42,14 +43,15 @@ The development output is located in the `debug` directory and `npm run dist` cr
 The file `test/counter.spec.ts` contains an example Jest unit test that checks the HTML rendering after initialization. Furthermore, it contains a snapshot test that utilizes `html2jade` to generate a compact and readable snapshot of the result after a series of user interactions.
 
 ## Notes
-This package relies on release candidate versions of TypeScript 2.0 and Vue.js 2.0 and is work in progress.
-
 Inline TypeScript Code in `*.vue` files is not supported, because external TypeScript code allows IDE support and source maps. Additionally, since the TypeScript compiler does not understand `*.vue` files, code reuse between components (including, e.g., interface definitions) is impossible with inline code.
 
 This example does not directly use [Babel](https://babeljs.io/). However, `vueify` automatically enables Babel for `*.vue` files if `babel-core` is present, and `babel-core` is an indirect dependency of `jest`. In this case, `vueify` depends on additional Babel packages, which are, therefore, included as `devDependencies`. To enable complete support for Babel, e.g. to mix TypeScript and ES2015 sources, run `npm i babelify --save-dev` and add `'babelify'` to the `browserify.transform` list in `package.json`.
 
+## Contributing
+Contributions including bug reports, tests, and documentation are more than welcome. Cf. above for how to get started with development.
+
 ## Acknowledgements
-This project has been heavily inspired by the Browserify template of vue-cli https://github.com/vuejs-templates/browserify.
+This project has been heavily inspired by the Browserify template of vue-cli (<https://github.com/vuejs-templates/browserify>).
 
 ## License
 [The Unlicense](http://unlicense.org)

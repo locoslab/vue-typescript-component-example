@@ -1,5 +1,6 @@
 /// <reference path='../node_modules/@types/jest/index.d.ts' />
 import Vue = require('vue')
+import {expectToMatchSnapshot, clickNthButton} from 'vue-jest-utils'
 import * as SUT from '../src/counter.vue'
 
 // basic unit testing
@@ -14,14 +15,9 @@ describe('counter.vue', () => {
 	})
 })
 
-// or use snapshot testing, e.g., with html2jade
-function clickNthButton(el: HTMLElement, n: number) {
-	(<HTMLButtonElement>el.querySelector('div button:nth-of-type(' + n + ')')).click()
-}
-const html2jade = require('html2jade')
-
+// or use snapshot testing
 describe('counter.vue', () => {
-	it('should just work', () => new Promise((resolve, reject) => {
+	it('should just work', () => {
 		const vm = new Vue({
 			el: document.createElement('div'),
 			render: (h) => h(SUT),
@@ -29,11 +25,6 @@ describe('counter.vue', () => {
 		clickNthButton(vm.$el, 1)
 		clickNthButton(vm.$el, 3)
 		clickNthButton(vm.$el, 2)
-		Vue.nextTick( () => {
-			html2jade.convertHtml(vm.$el.innerHTML, {bodyless: true}, (err: any, jade: string) => {
-				(<any>expect(jade)).toMatchSnapshot()
-				resolve()
-			})
-		})
-	}))
+		return expectToMatchSnapshot(vm)
+	})
 })
