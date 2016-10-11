@@ -67,7 +67,7 @@
     "vue-jest-utils": "^0.1.1",
     "vue-typescript-component": "^0.3.0",
     "vue-typescript-import-dts": "^1.1.0",
-    "vue-typescript-jest": "^0.1.1",
+    "vue-typescript-jest": "^0.2.1",
     "vueify": "^9.2.4",
     "watchify": "^3.4.0"
   },
