@@ -42,6 +42,117 @@ The development output is located in the `debug` directory and `npm run dist` cr
 
 The file `test/counter.spec.ts` contains an example Jest unit test that checks the HTML rendering after initialization. Furthermore, it contains a snapshot test that utilizes `html2jade` to generate a compact and readable snapshot of the result after a series of user interactions.
 
+### Notable Features
+* TypeScript classes as Vue.js components using decorators with [vue-typescript-component](https://github.com/locoslab/vue-typescript-component)
+```typescript
+import Vue = require('vue')
+import * as vts from 'vue-typescript-component'
+
+// http://vuejs.org/guide/components.html
+@vts.component()
+// extend Vue to get code completion for Vue.js instance functionality
+export default class CounterTs extends Vue {
+	// http://vuejs.org/api/#props
+	@vts.prop({type: String, required: false})
+	fromParent: String
+
+	// http://vuejs.org/api/#data
+	name = 'counter'
+	count = 0
+
+	// http://vuejs.org/api/#methods
+	inc() {
+		this.count++
+	}
+	dec() {
+		this.count--
+	}
+
+	// http://vuejs.org/api/#computed
+	get opposite(): number {
+		return -this.count
+	}
+	set opposite(value: number) {
+		this.count = -value
+	}
+
+	// http://vuejs.org/api/#watch
+	@vts.watch('count')
+	watchForSignChange(val: number, oldVal: number) {
+		if (val === -oldVal) {
+			this.$emit('signChanged')
+		}
+	}
+
+	// http://vuejs.org/api/#Options-Lifecycle-Hooks
+	created(): void {
+		this.count++
+	}
+}
+```
+
+* Import `*.vue` files in TypeScript classes with [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-component)
+```typescript
+// the child component
+import * as Child from './child.vue'
+
+@vts.component({components: {Child}})
+export default class ParentTs extends Vue implements ChildListener {...}
+```
+
+* Use a complex listener interface with compile-time type checks
+```typescript
+// child component declares listener interface
+export interface ChildListener {
+	inc(): void
+	dec(): void
+	greet(text: String): void
+}
+```
+```typescript
+// parent components imports and implements interface
+import { ChildListener } from './child'
+export default class ParentTs extends Vue implements ChildListener {...}
+```
+
+* Jest unit testing of Vue.js components (JavaScript or TypeScript) with [vue-typescript-jest](https://github.com/locoslab/vue-typescript-jest)
+```typescript
+/// <reference path='../node_modules/@types/jest/index.d.ts' />
+import Vue = require('vue')
+import * as SUT from '../src/counter.vue'
+
+describe('counter.vue', () => {
+	it('should initialize correctly', () => {
+		const vm = new Vue({
+			el: document.createElement('div'),
+			render: (h) => h(SUT),
+		})
+		expect(vm.$el.querySelector('div span').textContent).toBe('counter')
+	})
+})
+```
+
+* Simple Jest snapshot testing with [vue-jest-utils](https://github.com/locoslab/vue-jest-utils)
+```typescript
+// ...
+import {expectToMatchSnapshot, clickNthButton} from 'vue-jest-utils'
+describe('counter.vue', () => {
+	it('should just work', () => {
+		const vm = new Vue({
+			el: document.createElement('div'),
+			render: (h) => h(SUT),
+		})
+		clickNthButton(vm.$el, 1)
+		clickNthButton(vm.$el, 3)
+		clickNthButton(vm.$el, 2)
+		// return a Promise that
+		// 1. calls vm.nextTick()
+		// 2. checks the snapshot of vm.$el using html2jade
+		return expectToMatchSnapshot(vm)
+	})
+})
+```
+
 ## Notes
 Inline TypeScript Code in `*.vue` files is not supported, because external TypeScript code allows IDE support and source maps. Additionally, since the TypeScript compiler does not understand `*.vue` files, code reuse between components (including, e.g., interface definitions) is impossible with inline code.
 
