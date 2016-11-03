@@ -1,5 +1,6 @@
 # vue-typescript-component-example [![Build Status](https://travis-ci.org/locoslab/vue-typescript-component-example.svg?branch=master)](https://travis-ci.org/locoslab/vue-typescript-component-example)
 Example project for [Vue.js](http://vuejs.org/) 2.0 and [TypeScript](http://www.typescriptlang.org/) 2.0 using
+
 * [Browserify/watchify](http://browserify.org/) for bundling
 * [vueify](https://github.com/vuejs/vueify) for Vue.js components supporting Hot Module Replacement
 * [Tsify](https://www.npmjs.com/package/tsify) for TypeScript support in a Browserify environment including source maps
@@ -11,7 +12,7 @@ Example project for [Vue.js](http://vuejs.org/) 2.0 and [TypeScript](http://www.
 and illustrating
 
 * [vue-typescript-component](https://github.com/locoslab/vue-typescript-component) to use TypeScript classes as Vue.js components
-* [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-component) to import `*.vue` files in TypeScript sources
+* [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-import-dts) to import `*.vue` files in TypeScript sources
 * [vue-typescript-jest](https://github.com/locoslab/vue-typescript-jest) to test Vue.js components and TypeScript sources using Jest
 * [vue-jest-utils](https://github.com/locoslab/vue-jest-utils) to simplify snapshot testing of Vue.js components using Jest and html2jade
 
@@ -91,7 +92,7 @@ export default class CounterTs extends Vue {
 }
 ```
 
-* Import `*.vue` files in TypeScript classes with [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-component)
+* Import `*.vue` files in TypeScript classes with [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-import-dts)
 ```typescript
 // the child component
 import * as Child from './child.vue'
