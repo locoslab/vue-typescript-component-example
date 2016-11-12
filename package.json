@@ -28,7 +28,9 @@
     "lint": "tslint src/**/*.ts test/**/*.ts"
   },
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/vue-typescript-jest/preprocessor.js",
+    "transform": {
+      ".*\\.(ts|vue)$": "<rootDir>/node_modules/vue-typescript-jest/preprocessor.js"
+    },
     "moduleFileExtensions": [
       "ts",
       "js",
@@ -38,7 +40,7 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/test/.*\\.(ts|js)$",
-      "/.*\\.vue"
+      "/.*\\.vue$"
     ]
   },
   "devDependencies": {
@@ -53,22 +55,22 @@
     "envify": "^3.4.1",
     "html2jade": "^0.8.5",
     "http-server": "^0.9.0",
-    "jest-cli": "^16.0.1",
+    "jest-cli": "^17.0.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^3.1.0",
     "pug": "^2.0.0-beta5",
     "rplcr": "^0.2.2",
     "tsify": "^2.0.2",
     "tslint": "^3.15.1",
-    "tslint-config-locoslab": "^0.1.0",
+    "tslint-config-locoslab": "^0.2.0",
     "typescript": "^2.0.3",
     "uglify-js": "^2.5.0",
     "vue": "^2.0.1",
-    "vue-jest-utils": "^0.1.1",
-    "vue-typescript-component": "^0.5.0",
+    "vue-jest-utils": "^0.2.0",
+    "vue-typescript-component": "^0.6.0",
     "vue-typescript-import-dts": "^2.0.0",
-    "vue-typescript-jest": "^0.2.0",
-    "vueify": "^9.2.4",
+    "vue-typescript-jest": "^0.3.0",
+    "vueify": "^9.3.0",
     "watchify": "^3.4.0"
   },
   "browserify": {
