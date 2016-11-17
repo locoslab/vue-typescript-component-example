@@ -60,7 +60,7 @@
     "npm-run-all": "^3.1.0",
     "pug": "^2.0.0-beta5",
     "rplcr": "^0.2.2",
-    "tsify": "^2.0.2",
+    "tsify": "^2.0.3",
     "tslint": "^3.15.1",
     "tslint-config-locoslab": "^0.2.0",
     "typescript": "^2.0.3",
