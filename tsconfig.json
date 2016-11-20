@@ -5,6 +5,7 @@
 		"experimentalDecorators": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
+		"noUnusedLocals": true,
 		"inlineSourceMap": true,
 		"inlineSources": true,
 		"pretty": true,
