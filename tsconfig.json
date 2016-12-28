@@ -13,7 +13,7 @@
 		"types": ["vue-typescript-import-dts"]
 	},
 	"exclude": [
-		"node_modules"
+		"node_modules", "test"
 	],
 	"atom": {
 		"rewriteTsconfig": false
