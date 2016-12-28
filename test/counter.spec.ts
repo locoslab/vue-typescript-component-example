@@ -10,8 +10,8 @@ describe('counter.vue', () => {
 			el: document.createElement('div'),
 			render: (h) => h(SUT),
 		})
-		expect(vm.$el.querySelector('div span').textContent).toBe('counter')
-		expect(vm.$el.querySelector('div span:nth-child(2)').textContent).toBe('1')
+		expect(vm.$el.querySelector('div span')!.textContent).toBe('counter')
+		expect(vm.$el.querySelector('div span:nth-child(2)')!.textContent).toBe('1')
 	})
 })
 
