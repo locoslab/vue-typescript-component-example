@@ -70,7 +70,7 @@
     "vue-typescript-component": "^0.6.1",
     "vue-typescript-import-dts": "^2.0.0",
     "vue-typescript-jest": "^0.3.0",
-    "vueify": "^9.4.0",
+    "vueify": "^9.4.1",
     "watchify": "^3.4.0"
   },
   "browserify": {
