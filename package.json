@@ -64,7 +64,7 @@
     "tslint": "^4.2.0",
     "tslint-config-locoslab": "^1.0.0",
     "typescript": "^2.1.4",
-    "uglify-js": "^2.5.0",
+    "uglify-js": "^3.0.9",
     "vue": "^2.1.8",
     "vue-jest-utils": "^0.2.0",
     "vue-typescript-component": "^0.6.1",
