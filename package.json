@@ -55,7 +55,7 @@
     "envify": "^4.0.0",
     "html2jade": "^0.8.5",
     "http-server": "^0.9.0",
-    "jest-cli": "^18.0.0",
+    "jest-cli": "^20.0.4",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.0.0",
     "pug": "^2.0.0-beta5",
