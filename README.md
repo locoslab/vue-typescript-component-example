@@ -1,3 +1,6 @@
+# :snowflake: DEPRECATION NOTICE :snowflake:
+Official TypeScript support has been added to Vue.js 2.x and the old bindings have been changed considerably since this repository has been created. We recommend to start new projects with [Vue CLI](https://cli.vuejs.org/).
+
 # vue-typescript-component-example [![Build Status](https://travis-ci.org/locoslab/vue-typescript-component-example.svg?branch=master)](https://travis-ci.org/locoslab/vue-typescript-component-example)
 Example project for [Vue.js](http://vuejs.org/) 2.0 and [TypeScript](http://www.typescriptlang.org/) 2.0 using
 
